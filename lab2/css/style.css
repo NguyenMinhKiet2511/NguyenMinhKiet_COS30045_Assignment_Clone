@@ -1,0 +1,195 @@
+:root {
+    --primary-color: #2ecc71; 
+    --dark-bg: #2c3e50;       
+    --light-bg: #ecf0f1;     
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1); 
+}
+
+body {
+    font-family: 'Roboto', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+
+nav {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: sticky; 
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.logo .au {
+    color: var(--primary-color);
+}
+
+
+.logo img {
+    height: 60px;
+    padding: 0px;
+
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: #bdc3c7;
+    text-decoration: none;
+    font-weight: 500;
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover, .menu a.active {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+/* --- Main Layout --- */
+.container {
+    max-width: 1000px;
+    margin: 40px auto; 
+    padding: 0 20px;
+    flex: 1; 
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.page-section {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Card --- */
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    color: var(--dark-bg);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card h3 {
+    color: var(--dark-bg);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.card i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+/* --- Table --- */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+    background-color: var(--dark-bg);
+    color: var(--white);
+}
+
+.data-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.note {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    font-style: italic;
+    margin-top: 15px;
+}
+
+/* --- 6. ABOUT SECTION --- */
+.profile-card {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profile-icon {
+    font-size: 4rem;
+    color: var(--dark-bg);
+    margin-bottom: 20px;
+}
+
+/* --- 7. FOOTER --- */
+footer {
+    background-color: var(--dark-bg);
+    color: #bdc3c7;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.gen-ai {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}

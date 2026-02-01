@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Australian Energy Consumption</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                 <img src="assets/PowerIcon.png" alt="Power Logo">
+            </div>
+            <ul class="menu">
+                <li><a href="#" id="btn-home" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#" id="btn-tv"><i class="fa-solid fa-tv"></i> Televisions</a></li>
+                <li><a href="#" id="btn-about"><i class="fa-solid fa-user"></i> About Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="home" class="page-section">
+            <div class="hero">
+                <h1>Appliance Energy Consumption in Australia</h1>
+                <p>Understanding how household devices impact your bill and the environment.</p>
+            </div>
+            <div class="grid-layout">
+                <div class="card">
+                    <h3><i class="fa-solid fa-chart-line"></i> Why it matters?</h3>
+                    <p>In 2024, Australian households are facing rising energy costs. Understanding the "vampire power" (standby usage) of devices like Televisions, Fridges, and Washing Machines is crucial for reducing the national carbon footprint.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-star"></i> The Star Rating</h3>
+                    <p>Australia uses the Energy Rating Label system. The more stars, the more energy efficient. This website explores the data behind these ratings, focusing specifically on modern Televisions.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-database"></i> Data Source</h3>
+                    <p>The data presented in this visualization project is sourced from the Australian Government's Energy Rating database, covering over 5,000 appliance models.</p>
+                </div>
+            </div>
+        </section>
+        <section id="data-story" class="page-section hidden">
+            <div class="header-section">
+                <h1>Understanding the Data</h1>
+                <p>What does 4,000+ televisions tell us about energy efficiency?</p>
+            </div>
+            
+            <div class="card">
+                <p>Buying a new TV is exciting, but with rising electricity prices in Australia, the running cost is just as important as the purchase price. We analyzed over 4,000 televisions currently on the market to help you find the sweet spot between a massive screen and a manageable power bill.</p>
+                <p><strong>Here is what the data says.</strong></p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-layers"></i> 1. What are my options?</h3>
+                <p>The market is dominated by <strong>LCD (LED)</strong> technology. As the chart below shows, this is by far the most frequent technology available in Australia. While OLED screens are popular among enthusiasts for their picture quality, they represent a smaller slice of the market. If you are looking for variety and availability, LCD is the standard choice.</p>
+                <div class="chart-container">
+                    <img src="assets/screen_tech.png" alt="Bar chart">
+                    <img src="assets/screen_size.png" alt="Bar chart">
+                    <p><em>Availability of Screen Technologies in Australia</em></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-arrow-trend-up"></i> 2. The "Size Cost" Reality</h3>
+                <p>Is bigger always better? When it comes to power bills, the answer is no. This scatter plot reveals a clear trend: <strong>as screen size increases, power consumption rises.</strong></p>
+                <ul>
+                    <li>Most 32-inch TVs consume very little power (bottom left).</li>
+                    <li>Once you step up to 75-inch or 85-inch models (top right), the power consumption jumps significantly.</li>
+                </ul>
+                <div class="highlight">
+                    <strong><i class="fa-solid fa-lightbulb"></i> Takeaway:</strong> If you are buying for a small room, stick to the 40-50 inch range to keep running costs minimal.
+                </div>
+                <div class="chart-container">
+                    <img src="assets/screen_size_pw.png" alt="Box Plot">
+                    <img src="assets/screen_tech_pw.png" alt="Scatter plot tion">
+                    <p><em>Relationship between Screen Size and Power Consumption</em></p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-star"></i> 3. You CAN have a big, green TV</h3>
+                <p>If you have your heart set on a big screen, don't worry—you don't have to sacrifice efficiency. The chart below compares Screen Size against the Star Rating Index. Interestingly, the trend line is flat.</p>
+                <p>This means <strong>Star Ratings are fair across all sizes.</strong> You can find a 5-star TV that is 32 inches, and you can also find a 5-star TV that is 85 inches.</p>
+                <div class="highlight">
+                    <strong><i class="fa-solid fa-check"></i> The Trick:</strong> Don't assume a big TV has a bad rating just because it uses more power. The Star Rating system calculates efficiency <em>relative</em> to screen size. Always look for the sticker!
+                </div>
+                <div class="chart-container">
+                    <img src="assets/screen_size_star.png" alt="Scatter plot showing Star Rating vs Screen Size">
+                    <p><em>Fig 3: Star Rating Index across different Screen Sizes</em></p>
+                </div>
+            </div>
+
+        </section>
+        <section id="televisions" class="page-section hidden">
+            <div class="header-section">
+                <h1>Television Energy Insights</h1>
+                <p>Comparing LED, OLED, and QLED power consumption.</p>
+            </div>
+            <div class="card large-card">
+                <h3>Average Annual Consumption (Sample Data)</h3>
+                <p>The table below displays typical energy usage for 55-inch televisions in the Australian market.</p> 
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Screen Type</th>
+                            <th>Size</th>
+                            <th>Avg. Energy (kWh/year)</th>
+                            <th>Est. Cost (AUD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>LED Standard</td>
+                            <td>55"</td>
+                            <td>180 kWh</td>
+                            <td>$54.00</td>
+                        </tr>
+                        <tr>
+                            <td>QLED 4K</td>
+                            <td>55"</td>
+                            <td>210 kWh</td>
+                            <td>$63.00</td>
+                        </tr>
+                        <tr>
+                            <td>OLED High-End</td>
+                            <td>55"</td>
+                            <td>150 kWh</td>
+                            <td>$45.00</td>
+                        </tr>
+                        <tr>
+                            <td>Old Plasma</td>
+                            <td>55"</td>
+                            <td>350 kWh</td>
+                            <td>$105.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="note">*Based on average electricity price of $0.30/kWh.</p>
+            </div>
+        </section>
+
+        <section id="about" class="page-section hidden">
+            <div class="card">
+                <div style="text-align: center; font-size: 3rem; color: #2ecc71; margin-bottom: 1rem;">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <h1 style="text-align: center; color: #2c3e50;">About Appliance Energy</h1>
+                <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <p>
+                    <strong>Appliance Energy</strong> is a dedicated platform designed to help Australian households understand and reduce their electricity consumption. 
+                    With rising energy costs and environmental concerns, making informed choices about home appliances has never been more critical.
+                </p>
+                <p style="margin-top: 30px; text-align: center; font-style: italic; color: #7f8c8d;">
+                    "Empowering consumers for a greener future."
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Application Energy Consumption. All rights reserved.</p>
+        <p class="gen-ai">GenAI Acknowledgement: Code structure and styling assisted by Gemini AI.</p>
+    </footer>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>
