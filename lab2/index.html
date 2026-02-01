@@ -17,6 +17,7 @@
             </div>
             <ul class="menu">
                 <li><a href="#" id="btn-home" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+                <li><a href="#" id="btn-data-story"><i class="fa-solid fa-chart-pie"></i> Data Story</a></li>
                 <li><a href="#" id="btn-tv"><i class="fa-solid fa-tv"></i> Televisions</a></li>
                 <li><a href="#" id="btn-about"><i class="fa-solid fa-user"></i> About Us</a></li>
             </ul>
@@ -43,6 +44,68 @@
                     <p>The data presented in this visualization project is sourced from the Australian Government's Energy Rating database, covering over 5,000 appliance models.</p>
                 </div>
             </div>
+        </section>
+<section id="data-story" class="page-section hidden">
+            <div class="header-section">
+                <h1>Smart Viewing: A Guide to Buying Energy-Efficient TVs in Australia</h1>
+                <p>What does 4,000+ televisions tell us about energy efficiency?</p>
+            </div>
+            
+            <div class="card">
+                <p>Buying a new TV is exciting, but with rising electricity prices in Australia, the running cost is just as important as the purchase price. We analyzed over 4,000 televisions currently on the market to help you find the sweet spot between a massive screen and a manageable power bill.</p>
+                <p><strong>Here is what the data says.</strong></p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-layers"></i> 1. What are my options?</h3>
+                
+                <p>The market is dominated by <strong>LCD (LED)</strong> technology. As the chart below shows, this is by far the most frequent technology available in Australia. While OLED screens are popular among enthusiasts for their picture quality, they represent a smaller slice of the market. If you are looking for variety and availability, LCD is the standard choice.</p>
+                <div class="chart-container">
+                    <img src="assets/screen_tech.png" alt="Bar chart showing TV Tech frequency">
+                </div>
+
+                <p><strong>But what about fit?</strong> Finding the right size is easier than ever, but the standard has shifted. Our data shows that <strong>55-inch and 65-inch</strong> models are now the most common sizes on store shelves. However, if you are furnishing a smaller apartment or bedroom, don't worry—there is still a healthy supply of 32-inch and 43-inch models available.</p>
+                <div class="chart-container">
+                    <img src="assets/screen_size.png" alt="Bar chart showing TV Size frequency">
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-arrow-trend-up"></i> 2. The "Power Cost" Reality</h3>
+                
+                <p>Is bigger always better? When it comes to power bills, the answer is no. This scatter plot reveals a clear trend: <strong>as screen size increases, power consumption rises significantly.</strong></p>
+                <ul>
+                    <li>Most 32-inch TVs consume very little power (bottom left).</li>
+                    <li>Once you step up to 75-inch or 85-inch models (top right), the power consumption jumps drastically.</li>
+                </ul>
+                <div class="chart-container">
+                    <img src="assets/screen_size_pw.png" alt="Scatter Plot size vs power">
+                </div>
+
+                <p><strong>It's not just size that matters—technology plays a role too.</strong> We compared the average power consumption across different panel types. As the box plot below illustrates, <strong>OLED technology</strong> generally draws more power on average than standard LCD (LED) screens. If strict energy saving is your priority, a standard LED panel is often the more frugal choice.</p>
+                
+                <div class="highlight">
+                    <strong><i class="fa-solid fa-lightbulb"></i> Takeaway:</strong> If you are buying for a small room, stick to the 40-50 inch range (LCD) to keep running costs minimal.
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/screen_tech_pw.png" alt="Box plot tech vs power">
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-star"></i> 3. You CAN have a big, green TV</h3>
+                <p>If you have your heart set on a big screen, don't worry—you don't have to sacrifice efficiency. The chart below compares Screen Size against the Star Rating Index. Interestingly, the trend line is flat.</p>
+                <p>This means <strong>Star Ratings are fair across all sizes.</strong> You can find a 5-star TV that is 32 inches, and you can also find a 5-star TV that is 85 inches.</p>
+                <div class="highlight">
+                    <strong><i class="fa-solid fa-check"></i> The Trick:</strong> Don't assume a big TV has a bad rating just because it uses more power. The Star Rating system calculates efficiency <em>relative</em> to screen size. Always look for the sticker!
+                </div>
+                <div class="chart-container">
+                    <img src="assets/screen_size_star.png" alt="Scatter plot showing Star Rating vs Screen Size">
+                </div>
+            </div>
+        </section>
+
         </section>
         <section id="televisions" class="page-section hidden">
             <div class="header-section">
