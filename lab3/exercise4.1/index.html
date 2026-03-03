@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG House and Garden - Two Versions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+          h2 {
+            margin-top: 40px;
+            color: #333;
+        }
+        
+        .row {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+          img, svg {
+            border: 1px solid #aaa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="versions-grid">
+            <!-- VERSION 1: SIMPLE -->
+             <h2>Simple Version</h2>
+            <div class="row">
+                <svg width="600" height="500" viewBox="0 0 600 500">
+                    <defs>
+                        <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#E0F6FF;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="grass" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#90EE90;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#228B22;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Sky -->
+                    <rect width="600" height="350" fill="url(#sky)" />
+                    <!-- Ground -->
+                    <rect y="350" width="600" height="150" fill="url(#grass)" />
+                    
+                    <!-- Sun -->
+                    <g id="sun">
+                        <circle cx="500" cy="50" r="35" fill="#FFD700" />
+                    </g>
+                    
+                    <!-- HOUSE GROUP -->
+                    <g id="house">
+                        <!-- Body -->
+                        <rect x="150" y="180" width="300" height="170" fill="#D2691E" stroke="#8B4513" stroke-width="2" />
+
+                        <!-- Roof -->
+                        <polygon points="150,180 300,80 450,180" fill="#8B0000" stroke="#5C0000" stroke-width="2" />
+            
+                        <!-- Door -->
+                        <rect x="275" y="280" width="50" height="70" fill="#654321" stroke="#3E2723" stroke-width="2" />
+                    
+                        <!-- Windows -->
+                        <rect x="180" y="210" width="40" height="40" fill="#87CEEB" stroke="#333" stroke-width="2" />
+                        <rect x="380" y="210" width="40" height="40" fill="#87CEEB" stroke="#333" stroke-width="2" />
+                    </g>
+                    
+                    <!-- GARDEN GROUP -->
+                    <g id="garden">
+                        <!-- Tree -->
+                        <rect x="95" y="250" width="20" height="100" fill="#8B4513" />
+                        <circle cx="105" cy="220" r="40" fill="#228B22" />
+                    </g>
+                    
+                    <!-- TEXT -->
+                    <text x="300" y="30" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">
+                        Simple House & Garden
+                    </text>
+                </svg>
+                 <div>
+                    <h3>Annotated Coordinates</h3>
+                    <img src="/lab3/exercise4.1/annotatedimg.png" alt="Annotated SVG example" width="800">
+                </div>
+            </div>
+            <!-- VERSION 2: CUSTOMISED -->
+            <h2>Customised Version</h2>
+            <div class="row">
+                <svg width="600" height="500" viewBox="0 0 600 500">
+                    <defs>
+                        <linearGradient id="sky2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#FFE4B5;stop-opacity:1" />
+                        </linearGradient>
+                        <linearGradient id="grass2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#7CB342;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#558B2F;stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Sky -->
+                    <rect width="600" height="350" fill="url(#sky2)" />
+                    <!-- Ground -->
+                    <rect y="350" width="600" height="150" fill="url(#grass2)" />
+                    
+                    <!-- Sun with more rays -->
+                    <g id="sun2">
+                        <circle cx="520" cy="45" r="35" fill="#FFD700" opacity="0.95" />
+                        <line x1="520" y1="5" x2="520" y2="-15" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                        <line x1="520" y1="85" x2="520" y2="105" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                        <line x1="560" y1="45" x2="580" y2="45" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                        <line x1="480" y1="45" x2="460" y2="45" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                        <line x1="555" y1="10" x2="570" y2="-5" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                        <line x1="485" y1="80" x2="470" y2="95" stroke="#FFD700" stroke-width="3" stroke-linecap="round" />
+                    </g>
+                    
+                    <!-- HOUSE GROUP -->
+                    <g id="house">
+                        <!-- Walls -->
+                        <rect x="150" y="180" width="300" height="170" fill="#D2691E" stroke="#8B4513" stroke-width="2" />
+                        <!-- Roof -->
+                        <polygon points="150,180 300,80 450,180" fill="#8B0000" stroke="#5C0000" stroke-width="2" />
+
+                        <!-- Chimney -->
+                        <rect x="380" y="100" width="25" height="80" fill="#8B4513" stroke="#654321" stroke-width="1" />
+                        <circle cx="392.5" cy="95" r="6" fill="#D3D3D3" opacity="0.7" />
+                        <circle cx="395" cy="80" r="5" fill="#D3D3D3" opacity="0.5" />
+            
+                        <!-- Door -->
+                        <rect x="275" y="280" width="50" height="70" fill="#654321" stroke="#3E2723" stroke-width="2" />
+                        <circle cx="320" cy="315" r="4" fill="#FFD700" />
+                        
+                        <!-- Windows -->
+                        <rect x="180" y="210" width="40" height="40" fill="#87CEEB" stroke="#333" stroke-width="2" />
+                        <line x1="200" y1="210" x2="200" y2="250" stroke="#333" stroke-width="1" />
+                        <line x1="180" y1="230" x2="220" y2="230" stroke="#333" stroke-width="1" />
+                        
+                        <rect x="380" y="210" width="40" height="40" fill="#87CEEB" stroke="#333" stroke-width="2" />
+                        <line x1="400" y1="210" x2="400" y2="250" stroke="#333" stroke-width="1" />
+                        <line x1="380" y1="230" x2="420" y2="230" stroke="#333" stroke-width="1" />
+                    </g>
+                    
+                    <!-- GARDEN GROUP -->
+                    <g id="garden2">
+                        <!-- Tree 1 -->
+                        <g id="tree1" transform="translate(100, 280)">
+                            <rect x="-10" y="0" width="20" height="90" fill="#8B4513" />
+                            <circle cx="0" cy="-20" r="35" fill="#2D5016" opacity="0.9" />
+                            <circle cx="-22" cy="0" r="28" fill="#228B22" opacity="0.85" />
+                            <circle cx="22" cy="0" r="28" fill="#228B22" opacity="0.85" />
+                        </g>
+                        
+                        <!-- Tree 2 (scaled smaller) -->
+                        <g id="tree2" transform="translate(480, 310) scale(0.7)">
+                            <rect x="-10" y="0" width="20" height="85" fill="#654321" />
+                            <circle cx="0" cy="-15" r="32" fill="#1B4D1B" opacity="0.9" />
+                            <circle cx="-20" cy="5" r="25" fill="#228B22" opacity="0.85" />
+                            <circle cx="20" cy="5" r="25" fill="#228B22" opacity="0.85" />
+                        </g>
+                        
+                        <!-- Flower 1 - Red -->
+                        <g transform="translate(180, 410)">
+                            <line x1="0" y1="0" x2="0" y2="40" stroke="#2D5016" stroke-width="2" />
+                            <ellipse cx="-8" cy="20" rx="3" ry="8" fill="#228B22" transform="rotate(-35 -8 20)" />
+                            <circle cx="0" cy="-12" r="5" fill="#DC143C" />
+                            <circle cx="8" cy="-6" r="5" fill="#DC143C" />
+                            <circle cx="8" cy="4" r="5" fill="#DC143C" />
+                            <circle cx="0" cy="10" r="5" fill="#DC143C" />
+                            <circle cx="-8" cy="4" r="5" fill="#DC143C" />
+                            <circle cx="-8" cy="-6" r="5" fill="#DC143C" />
+                            <circle cx="0" cy="0" r="4" fill="#FFD700" />
+                        </g>
+                        
+                        <!-- Flower 2 - Yellow -->
+                        <g transform="translate(350, 430)">
+                            <line x1="0" y1="0" x2="0" y2="35" stroke="#228B22" stroke-width="2" />
+                            <ellipse cx="8" cy="15" rx="3" ry="8" fill="#228B22" transform="rotate(40 8 15)" />
+                            <ellipse cx="0" cy="-10" rx="4" ry="7" fill="#FFD700" />
+                            <ellipse cx="7" cy="-5" rx="4" ry="7" fill="#FFD700" />
+                            <ellipse cx="7" cy="5" rx="4" ry="7" fill="#FFD700" />
+                            <ellipse cx="0" cy="10" rx="4" ry="7" fill="#FFD700" />
+                            <ellipse cx="-7" cy="5" rx="4" ry="7" fill="#FFD700" />
+                            <ellipse cx="-7" cy="-5" rx="4" ry="7" fill="#FFD700" />
+                            <circle cx="0" cy="0" r="3" fill="#FF8C00" />
+                        </g>
+                        
+                        <!-- Flower 3 - Pink (with rotation) -->
+                        <g transform="translate(420, 390) rotate(30)">
+                            <line x1="0" y1="0" x2="0" y2="30" stroke="#228B22" stroke-width="2" />
+                            <circle cx="0" cy="-8" r="4" fill="#FF69B4" />
+                            <circle cx="6" cy="-4" r="4" fill="#FF69B4" />
+                            <circle cx="6" cy="4" r="4" fill="#FF69B4" />
+                            <circle cx="0" cy="8" r="4" fill="#FF69B4" />
+                            <circle cx="-6" cy="4" r="4" fill="#FF69B4" />
+                            <circle cx="-6" cy="-4" r="4" fill="#FF69B4" />
+                            <circle cx="0" cy="0" r="3" fill="#FFD700" />
+                        </g>
+                        
+                        <!-- Grass blades -->
+                        <path d="M 150 450 Q 152 435 150 420" stroke="#558B2F" stroke-width="2" fill="none" stroke-linecap="round" />
+                        <path d="M 520 460 Q 525 440 520 420" stroke="#7CB342" stroke-width="2" fill="none" stroke-linecap="round" />
+                    </g>
+                    
+                    <!-- TEXT -->
+                    <text x="300" y="30" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">
+                        Customised House & Garden
+                    </text>
+                </svg>
+                <div>
+                    <h3>Dom View</h3>
+                    <img src="/lab3/exercise4.1/domview.png" alt="Dom View" width="800">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
