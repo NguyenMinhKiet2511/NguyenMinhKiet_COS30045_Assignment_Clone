@@ -1,9 +1,10 @@
 // Define SVG dimensions and constants
 const svgWidth = 700;
 const svgHeight = 400;
+const barHeight = 30;
+const barPadding = 10;
 const labelWidth = 90;
 const valueWidth = 50;
-const margin = { top: 20, right: 20, bottom: 20, left: 20 };
 
 // Create SVG inside the #chart container
 const svg = d3.select("#chart")
@@ -31,39 +32,25 @@ d3.csv("data/BrandTV.csv", d => ({
   createBarChart(data);
 });
 
-// Create and draw bar chart with D3 scales
+// Create and draw bar chart with data binding
 const createBarChart = (data) => {
   console.log("Creating bar chart with data:", data);
   
-  // Calculate available dimensions
-  const chartWidth = svgWidth - labelWidth - valueWidth - margin.left - margin.right;
-  const chartHeight = svgHeight - margin.top - margin.bottom;
+  // Calculate scale for bar width (max count determines the scale)
+  const maxCount = d3.max(data, d => d.count);
+  const barWidth = (svgWidth - labelWidth - valueWidth - 20) / maxCount;
   
-  // 1. LINEAR SCALE for count data (x-axis for bar widths)
-  const xScale = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.count)])
-    .range([0, chartWidth]);
-  
-  // 2. BAND SCALE for category data (y-axis for bar positions)
-  // .padding() method adds padding between bands
-  const yScale = d3.scaleBand()
-    .domain(data.map(d => d.brand))
-    .range([0, chartHeight])
-    .padding(0.2); // 3. ADD PADDING - 20% padding between bars
-  
-  console.log("X Scale domain:", xScale.domain());
-  console.log("Y Scale domain:", yScale.domain());
-  console.log("Band width:", yScale.bandwidth());
-  
-  // Bind data to rectangles using scales
+  // STEP 1: Bind data to DOM elements (rectangles)
   svg.selectAll("rect")
     .data(data)
     .join("rect")
+    // Add class attribute with count data
     .attr("class", d => `bar bar-${d.count}`)
-    .attr("x", labelWidth + 10) // left position constant
-    .attr("y", (d) => margin.top + yScale(d.brand)) // use band scale for y
-    .attr("width", d => xScale(d.count)) // use linear scale for width
-    .attr("height", yScale.bandwidth()); // use band scale for height
+    // STEP 2: Add attributes for width and height
+    .attr("x", labelWidth + 10) // x position: constant (left padding for labels)
+    .attr("y", (d, i) => i * (barHeight + barPadding)) // STEP 3: y position with spacing
+    .attr("width", d => d.count * barWidth) // width based on data
+    .attr("height", barHeight); // height is constant
   
   // Add brand labels on the left
   svg.selectAll("text.label")
@@ -71,7 +58,7 @@ const createBarChart = (data) => {
     .join("text")
     .attr("class", "label")
     .attr("x", labelWidth)
-    .attr("y", (d) => margin.top + yScale(d.brand) + yScale.bandwidth() / 2)
+    .attr("y", (d, i) => i * (barHeight + barPadding) + barHeight / 2)
     .attr("dy", "0.35em") // vertical alignment
     .text(d => d.brand);
   
@@ -80,8 +67,8 @@ const createBarChart = (data) => {
     .data(data)
     .join("text")
     .attr("class", "value")
-    .attr("x", (d) => labelWidth + 10 + xScale(d.count) + 5) // positioned after bar
-    .attr("y", (d) => margin.top + yScale(d.brand) + yScale.bandwidth() / 2)
+    .attr("x", (d) => labelWidth + 10 + d.count * barWidth + 5) // positioned after bar
+    .attr("y", (d, i) => i * (barHeight + barPadding) + barHeight / 2)
     .attr("dy", "0.35em") // vertical alignment
     .text(d => d.count);
 };
