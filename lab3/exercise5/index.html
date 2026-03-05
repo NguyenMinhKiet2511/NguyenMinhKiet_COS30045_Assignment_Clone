@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5: Multi-Chart Visualization - TV Energy Data</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>TV Energy Consumption</h1>
+        
+        <!-- Scatter Plot -->
+        <div class="chart-container">
+            <h2>Energy Consumption vs Star Rating</h2>
+            <div id="scatter-chart"></div>
+        </div>
+        
+        <!-- Donut Chart -->
+        <div class="chart-container">
+            <h2>Energy Consumption by Screen Technology (All TVs)</h2>
+            <div id="donut-chart"></div>
+        </div>
+        
+        <!-- Bar Chart -->
+        <div class="chart-container">
+            <h2>Energy Consumption by Screen Technology (55-inch TVs)</h2>
+            <div id="bar-chart"></div>
+        </div>
+        
+        <!-- Line Chart -->
+        <div class="chart-container">
+            <h2>Spot Power Prices (1998-2024)</h2>
+            <div id="line-chart"></div>
+        </div>
+    </div>
+
+    <!-- Load all chart scripts -->
+    <script src="js/scatter.js"></script>
+    <script src="js/donut.js"></script>
+    <script src="js/bar.js"></script>
+    <script src="js/line.js"></script>
+</body>
+</html>
