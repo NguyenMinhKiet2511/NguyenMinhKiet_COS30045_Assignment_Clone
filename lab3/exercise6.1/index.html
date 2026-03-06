@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 6: Interactive Histogram with Filtering</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/visualisation.css">
+    
+    <!-- D3.js Library -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TV Energy Consumption Analysis</h1>
+            <p>Interactive histogram showing the distribution of energy consumption across different TV screen technologies</p>
+        </header>
+        
+        <main>
+            <!-- Filter Controls Section -->
+            <section id="filter-section">
+                <div id="filter-controls" class="filter-controls"></div>
+            </section>
+            
+            <!-- Chart Section -->
+            <section id="chart-section">
+                <div id="histogram" class="loading">
+                    <span>Loading data...</span>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript Files (Order is important!) -->
+    <script src="js/shared-constants.js"></script>
+    <script src="js/load-data.js"></script>
+    <script src="js/histogram.js"></script>
+    <script src="js/interaction.js"></script>
+    
+    <!-- Main application logic -->
+    <script>
+        // Initialize application
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Application initializing...');
+            
+            // Load data and create visualization
+            loadData()
+                .then(() => {
+                    console.log('Data loaded, initializing filters...');
+                    initializeFilters();
+                    console.log('Filters initialized, creating histogram...');
+                    createHistogram('All');
+                    console.log('Histogram created successfully');
+                })
+                .catch(error => {
+                    console.error('Failed to initialize application:', error);
+                    document.getElementById('histogram').innerHTML = 
+                        '<div class="error">Error loading data. Please check the console for details.</div>';
+                });
+        });
+    </script>
+</body>
+</html>
