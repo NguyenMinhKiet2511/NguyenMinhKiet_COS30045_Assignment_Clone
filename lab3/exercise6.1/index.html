@@ -16,19 +16,33 @@
     <div class="container">
         <header>
             <h1>TV Energy Consumption Analysis</h1>
-            <p>Interactive histogram showing the distribution of energy consumption across different TV screen technologies</p>
+            <h2>Energy Consumption for Different TV Screen Types and Sizes</h2>
         </header>
         
         <main>
-            <!-- Filter Controls Section -->
-            <section id="filter-section">
-                <div id="filter-controls" class="filter-controls"></div>
-            </section>
-            
-            <!-- Chart Section -->
-            <section id="chart-section">
-                <div id="histogram" class="loading">
-                    <span>Loading data...</span>
+            <!-- Charts Container -->
+            <section id="charts-section">
+                <div class="charts-grid">
+                    <!-- Histogram Section with Filter Controls -->
+                    <div class="chart-wrapper">
+                        <!-- Filter Controls Section (grouped with histogram) -->
+                        <div id="filter-section">
+                            <div id="filter-controls" class="filter-controls"></div>
+                        </div>
+                        
+                        <h2 class="chart-section-title">Energy Consumption Distribution</h2>
+                        <div id="histogram" class="loading">
+                            <span>Loading histogram...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Scatter Plot Section (Independent, no filter) -->
+                    <div class="chart-wrapper">
+                        <h2 class="chart-section-title">Energy Consumption by Star Rating</h2>
+                        <div id="scatter" class="loading">
+                            <span>Loading scatter plot...</span>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
@@ -38,6 +52,7 @@
     <script src="js/shared-constants.js"></script>
     <script src="js/load-data.js"></script>
     <script src="js/histogram.js"></script>
+    <script src="js/scatter.js"></script>
     <script src="js/interaction.js"></script>
     
     <!-- Main application logic -->
@@ -51,9 +66,10 @@
                 .then(() => {
                     console.log('Data loaded, initializing filters...');
                     initializeFilters();
-                    console.log('Filters initialized, creating histogram...');
+                    console.log('Filters initialized, creating visualizations...');
                     createHistogram('All');
-                    console.log('Histogram created successfully');
+                    createScatterPlot('All');
+                    console.log('Visualizations created successfully');
                 })
                 .catch(error => {
                     console.error('Failed to initialize application:', error);

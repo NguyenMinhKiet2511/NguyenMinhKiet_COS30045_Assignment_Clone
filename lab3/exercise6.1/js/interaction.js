@@ -48,6 +48,12 @@ function initializeFilters() {
     filterContainer.appendChild(buttonContainer);
 }
 
+// Update histogram only (scatter plot is not affected by filter)
+function updateHistogram(screenTech) {
+    console.log('Updating histogram for:', screenTech);
+    createHistogram(screenTech);
+}
+
 function handleWindowResize() {
     if (currentHistogram !== null) {
         createHistogram(currentHistogram);

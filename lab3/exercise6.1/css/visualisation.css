@@ -1,16 +1,21 @@
 /* Visualization styles for Exercise 6 */
 
 /* Filter controls */
+#filter-section {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+
+}
+
 #filter-controls {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     align-items: center;
-    margin-bottom: 30px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 6px;
-    border: 1px solid #ecf0f1;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
 }
 
 .filter-label {
@@ -100,20 +105,65 @@
     background-color: #9f5139;
 }
 
-/* Chart container */
-#histogram {
+/* Chart containers - stacked layout */
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.chart-wrapper {
     background-color: #fafafa;
     border-radius: 6px;
     border: 1px solid #ecf0f1;
     padding: 20px;
-    margin: 20px 0;
     min-height: 600px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-section-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+.chart-description {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+#histogram {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    border-radius: 4px;
 }
 
 #histogram svg {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+#scatter {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 4px;
+}
+
+#scatter svg {
     max-width: 100%;
     height: auto;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
@@ -174,7 +224,25 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1200px) {
+    .charts-grid {
+        gap: 20px;
+    }
+    
+    .chart-wrapper {
+        min-height: 500px;
+    }
+}
+
 @media (max-width: 900px) {
+    .charts-grid {
+        gap: 20px;
+    }
+    
+    .chart-wrapper {
+        min-height: 450px;
+    }
+    
     #filter-controls {
         gap: 10px;
         padding: 15px;
@@ -196,11 +264,6 @@
         width: 100%;
     }
     
-    #histogram {
-        min-height: 500px;
-        padding: 15px;
-    }
-    
     .axis {
         font-size: 11px;
     }
@@ -211,6 +274,10 @@
     
     .chart-title {
         font-size: 14px;
+    }
+    
+    .chart-section-title {
+        font-size: 1.1em;
     }
     
     .legend-label {
